@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Document</title>
+</head>
+<body>
+
+
+</body>
+</html>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <title>Jona</title>
+  </head>
+  <body>
+    <h1><a href="/cd?path={{home_location}}">Home</a> </h1>
+    <!-- <h1><a href="/cd?path={{directory_location}}">Uploads Folder</a> </h1> -->
+    <h1 id="check"><a href="/upload"> Upload Images to DB </a></h1>
+
+    <h1> <a href="/webcam">WEBCAM</a></h1>
+
+    <!-- <h1><a href="/image_upload">IMAGES PAGE</a></h1> -->
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    -->
+   <br>
+   <br>
+   
+    <!-- <h1>{{current_working_directory}}</h1> -->
+    <br>
+    <br>
+    <!-- <ul>
+      <li><a href="/cd?path=..">...</a></li>
+      {% for item in file_list[0:-1] %}
+        {% if '.' not in item %}
+          <li><strong><a href="/cd?path={{current_working_directory + '/' + item }}">{{item}}</a></strong></li>
+        {% else %}
+          <li>{{item}}</li>
+        {% endif %}
+      
+      {% endfor %}
+    </ul> -->
+
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <!-- <th>Mimetype</th>
+        <th>Location</th> -->
+        <th>Image</th>
+      </tr>
+      {% for row in file_query %}
+     
+        <tr>
+         
+          <td> {{row.id}}</td>
+          <!-- <td><a href="{{url_for('static', filename=row.name)}}">{{row.name}}</a></td> -->
+          <td><a href="{{url_for('static', filename=row.location )}}">{{row.name}}</a></td>
+
+          <!-- <td>{{row.mimetype}}</td>
+          <td>{{row.location}}</td> -->
+          <td>   <a href="{{url_for('static', filename=row.location )}}"> <img src="{{url_for('static', filename=row.location )}}" alt="upload pic" width="100" height="100"></a>
+          </td>
+        
+        </tr>
+     
+     
+      {% endfor %}
+    </table>
+    <!-- <img src="/home/dev/flaskproj/static/uploads/images/Asset_27.png" alt=""> -->
+    <!-- <img src="{{url_for('static', filename='surface_tensions.jpg')}}" alt="Girl in a jacket" width="500" height="600"> -->
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html> 
+
+
+

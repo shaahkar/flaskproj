@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- <h1>hello</h1> -->
+    <!-- <p><video id="video" autoplay width=320/><p>
+        <p><button onclick="startFunction()">Grab video & start recording</button></p>
+        <p><button onclick="download()">Download! (and stop video)</button></p> -->
+
+
+        <header>
+            <h1><a href="/">Headswap</a></h1>
+            <p>Record/download video and download CSV </p>
+          </header>
+          <main>
+            <p>
+              <button id="record" disabled>Record</button> 
+              <button id="stop" disabled>Stop</button>
+              <button id="pause" disabled>Pause</button>
+              <button id="resume" disabled>Resume</button>
+              <br>
+              <br/>
+              <button id="downloadvideo" disabled>Download Video</button>
+              <button id="downloadscript" disabled>Download Script</button>
+            </p>
+        
+            <div class="row">
+              <figure>
+                <video id="live" width="320"></video><br />
+                <caption>live preview</caption>
+              </figure>
+              <figure>
+                <canvas id="canvas" width="320"></canvas><br />
+                <caption>final view</caption>
+              </figure>
+              <figure>
+                <video id="recording" controls width="320"></video><br />
+                <caption>recorded clip</caption>
+              </figure>
+            </div>
+          </main>
+     
+        
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
